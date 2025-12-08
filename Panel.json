@@ -1,0 +1,147 @@
+{
+  "dns": {
+    "queryStrategy": "UseIP",
+    "servers": [
+      {
+        "address": "1.1.1.2",
+        "skipFallback": false
+      }
+    ],
+    "tag": "dns_out"
+  },
+  "inbounds": [
+    {
+      "port": 10808,
+      "protocol": "mixed",
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ],
+        "enabled": true
+      },
+      "tag": "mixed"
+    },
+    {
+      "port": 10809,
+      "protocol": "http",
+      "settings": {
+        "userLevel": 8
+      },
+      "tag": "http"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "tag": "proxy",
+      "settings": {
+        "vnext": [
+          {
+            "address": "46.224.108.231",
+            "port": 443,
+            "users": [
+              {
+                "id": "c9831414-ca30-48f9-b994-8d4bb6254145",
+                "encryption": "mlkem768x25519plus.native.0rtt.5Rq9ijFx1Ikee4mzx7ApTiiX6Ro-hBIlK4luo9Zo-VQhTIonosICi9a__OOwYVJEV-iAVtSGYIdMNQHJe1Jkf3kCGPPFbemfc3UvWkoIgZkeB1ktjicreUMLcEEYe4kmWwNPkLppeiatlJYoylGDOfUR9ouwDVTD-ACwp3yJoGs_RvMcxvUKpPRf2lWk1Dayx1TLycQFFAqET6SN4lvMi4W3ZIZ9AFuUPErOrNY_ksYEovEXK4SfGZy0oPEXDcA7HyM_pwPGniIqvji74vNDBIMHR2EZ16GqIJl-sPqP5qm7aQcrmOQRq_Nw8tpKpvFNtgwlYBelf3FVj6iPIeiaMJp4ymEAANwZ5XActBgIVCh62wkOfiWN0jaJQdUApuxcEzFgifJnTLsi_jjDmoSJoJaZYJYFaiK5tMVRR5oiFqZflEU_m1ClwHXJQidqjpaw6FHEhiYWBHeLTap6iABSqVLPz0xY_nWXuvBoFfo8RlSJgryCzOwqaCBi9VVjCJJjWOsWF3M1bgtXYvwfYfMF0GIGhrCMAaGmfObCxYsCAUubQxHMc3B2KhRvV0WDRCjGfTObmvqyK1EsRWtIoEYJF7OW8kMQvDIOx-keUOR2o6VrNZDDq9KrQ4KNz3YACgEItuJpUis418ZtgHlj-OoO2WUON-oFs4la-fgbP1V1kUjL3XQTRva9DbCVuhw3v_fFLTcLRhYuPGnGCeWeY5mknnvOO-C1noAyLvJ-dVB5owW9J8ZhutMv8povy8owC2w-0IA3V4MgcAWdfyM5y5uJTYSCHhYuEgtEusUDjQvCQxgOp5TPiykvluwFeiVlwtEqj5dIFqOPMblHZMw-gbS10VqsPraCnIGkfpOl5Nxw_Nl4cpZR7hhUoJGXd_R5tccY_2pknsTLknzNGBG5DQhsI5SMEdpWWaFBd0Io2jycBPmzSvmQvny4TNZBSVVFw0WLqHOcoEqT4So6KpuE3GxE6sGDGmQdhhp3EpF3egKUHGM08KGJsJlFQnsSPCy-SLiR78STxiULELYrAit8_ehxx5h7E_V0d2nCInyCIiRkg9lUdDIIMxpp5aRLpjZ0eMe6K8YQcWbPBlCBSyiPjLQVYYR9vNVInaDIWYEEw4JDM-J9rWCg2GRbRUqllWSbTzqD4hG7niOjYfkpFZQ3GYgwihV1NKUh78KlqNPHYaUoGFAjaAMlCcYlNiUPMCF4EymhlJuDYIAXzsMyIzoykCJa_LTPaJrE3BMN5hmZrwoUtGp90wWZ9jG-g_ahy5A4RBUvPxhTvuC09gmgbfMHcvWfmmm4-mE4L3WgI9lAO8oGHhszvJCFweZCOeZinhq2lkFfJLG5MYY_0qWKiXeMG6xRIhwXYxMQeOA7FlN3_vZRSDxYb_LCXIBBcSVC9AondJO462a77SlTGXqHx0ixrCo4PqV23YR61NF2goiS1Fy1J7yERlAjQKS9TPFq8SFqxvNC4yCbsTCePiSjdHpljJESnvIhHEkj0oCwiSsKtLubwtG6P1Acq5I9e-qEewAghYsF-i3Zpn29CdX-jfbG_Ys_Y4MIK-XcB-bgeQpZrgofp60",
+                "flow": ""
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "realitySettings": {
+          "fingerprint": "chrome",
+          "publicKey": "20OHPn9gloIv8N_iP6-wtuf0u0rEZjP4tc5-4CpKCXY",
+          "serverName": "www.box.com",
+          "shortId": "7a35a9b976a0e5ad",
+          "show": false,
+          "spiderX": "/",
+          "mldsa65Verify": "LBEsomP14gNm4sG3_SqR2oyePILQgojjE6B5Mgo5IUlBwytSPVGdE-XESsn8p5QcWvBgD8tZvbprTJD1wzMVPI1SGfCUTySjIRcdRr0wBH0pC9TS95P1IGsm_A7pemNDuNalU5b_bXsiuSei6UzeUlruZRgPWQ8oVZchIijGRc_PhU4166u5ltMzd_g6qN0PWK2lW0XFDyJEODnJmWSJ41U-0lJcRjj0b5jYthsTgtJrjiG1bZiL338L5OfcR5KzaI0uF59pbVu4pPgVo3rcTslOqup4C08XHKTq8xfUT1_sn29ynr7STR_NkMi0L-OAXEcm_nE53hHNu8qw_GqHjf0oWyxo_CFizfrazdJNxefI7asQpSwT5QLTADqJ1mxeIC4jlhb33IVrqxcuj14Nl5dyzgl1mRbSLuKq0d_UrnhwUny2LEi-CUkyb2NGBQO7Ub8J55eimjqQA511pNqRntgiBfsxlDXaV9_MrRHZjxwI5rh1mEkq1JbxHUMNfn2aCvdCRs5z2eK9MUpH0EnGC_0loV1Twvn85W9SXHlDYcr0EPTbGFGj9WZdfDUTG7bBpTOPtkN_QJLyLOTV_9GHpWVyiyYHwYKyYyVKI6Sg4cW1AiMtAfxnrzGWkwokdckj6AsrK-sUi4bRD1HZN3C2CFgExXfSip2Alk33QWr6x9iU1RGVcXvuMfNCGOg_1177OxDinAIzk7-EZ3CNGOpCPXsKHhsL8s4XbJ8Bs1fCmkiviB1Zqmg77OAUL8unLl-oeMauTBqa_tLxgn8-GOMqzElH-Xabkajz6MXrgs6GVI2kwI9oTq3QmkLA2IbVsfSf2LwlzHfq_cFvfnc_BYc52Skgb_no9Lj2rYvXRPkD90Fk5qhNmoswXHsr69l5qK3aYO2x3iAO8DbuqAIGySHRIbc0bilI6ANWNV4og3qiyRbiTH8_rFpugO0Y_SCMN2mjZO-4vbhGBmRKBlv6dWI9bZ9t9CTK0h7YNDXdgEu2ra4HvhTQxCWxSNmRAWEeR0cQhBBu8auj5zpIBmk7YH5CzNewwbES3-t6q2_8WjjyKheC17-svcMGb0isR_Qbw-Md1rtq-cqzwrC4F3g0LW7gCBUeAwZleW2Dw6vwxTKsW_0nIq5B-3WDD6rDwWCbK5v8DrbwPkoeIpdNq7GTpTSHfimNfOfc0sfB2s3j8fKo2Dqw0AnYoRnREA88n_f75URIXDSf1IYH2FdkcZeqadHE1dpvFDwjkjfOW5k3J80kDXe_7jzlIQswYhHWDRgF494r_-0yRKx9CXIbVtCWVmSrdwzvebS6JPS36P8iGmLX9P1KThIk8KSzVrU9K-BV5uORgYpaFD331VgG0d5NVqlygERE9E77ORYsxuuxMgde8WNKBxf7-OqdNYPDYNbXHOl9q1fkBs4uoMA-gum9WYObap1bjtv9g1B2Es7vO4BW3gp9upKayEA5AGfDrnahJuSa3uyYs_bMcEqBzNuYvYg4SqrI6y9_UoFQt_PrLQz5FxugJV56R25y6zNKrAbogKe1h4Zu-0hEbKUGZGywWHrWIhLtG5JYP08JG2-PGaRA5V_wTup8gZjWwQgc_8Ou5EVxMmBeCyOuOh2SATrDBD5D_Axx6YeLu2U7irOqQccmFPY_9O6-RuKmKkobJsytcNbsU6YscKmD3aRrSe5r49IoZ1RURIeOn96QknMGoPLbqiMXvqFv9Ex4Mk9e5ElnwUqMtKOq38E7Je8LbOw_E4XuVEBoSrnRECm6qQ2Wf7HKv9Why8bryZqacpPiE47sBCQ-oTQaoc67hGaq-MPnAoXccsYVaFMo__r7gLacIxFgN3HjHJRJPo4nvFoeAA1ZS9uxGMoDs7EYRh9OFiYw4kjcyBgy91oZExnNnfQWFTR4hIfy_4EZxvdNa8m8k9rXhfcOmG7t8fiQFKWnzvtMQS51t2FPYtKbVYMeY__j0sxp_I-R5Xc3-eRbLgZt7CJksW3CCNTPWdpXnYJZnQl-lNg-Qgg4ytyxrN_7ydPMscpsJcuMUFbSBK1VAZ5g4DIZ8mZ2lbW_MzsOgtc39F15MXpxCbaKE3vVdDXQoCf2pw1oXfIfCzRU2dOyEBp9ESz6eXFIQOqYmkVhSDiZ5IajiRic8HNlJ0R9kwNM-3-t9mpQebHdzqV6aghEb1zpVKe6-IgJ_Wl4GmnPb8mw-cJE3C4LrzW9aJXU9JQ3qTSkPlF4aFAkDbE63ctmBBXEpRvD5HsCSwaGaT1Klw_10kpGVVXqZq2kQQ2wYJBIrXSEgz2Ng3bzUM_2XmMWwfL_tW98sDXUHZ9AxuTYMtBk9Jrrb5gNpqtHHpr9M-6411cg0j4CKjK9FC-SQQrBhjDvKT0ofy5dI-mBgcBfUjCZodBf-dM-0Smnik9sFrjzI3wTgIhoSS3iPi6OyjvMOHNKRKVjNJFL3vKkmbMUdLP8JyJ5W9fBvo-YI8Ec7G3wwDqoXBTdS5v02KZCPJJw98pwGbIIv_gI9GIU_v2k7tdVp24vmZXOeQRv7lyfY4grWXXRkHgQlR8IDi1dEKKiWZy5eCPH-vvMM5SirN1bT6jRP0uGHgiZfNFnRqf1k4M1o4d6FRxYFP4"
+        },
+        "sockopt": {
+          "dialerProxy": "fragment",
+          "tcpKeepAliveIdle": 100,
+          "tcpMptcp": true,
+          "penetrate": true
+        },
+        "xhttpSettings": {
+          "mode": "auto",
+          "noSSEHeader": false,
+          "path": "/avfpcr5jas7w3ur5dzz.html",
+          "scMaxBufferedPosts": 24,
+          "scMaxEachPostBytes": "500000-800000",
+          "scStreamUpServerSecs": "30-60",
+          "xPaddingBytes": "200-600"
+        }
+      }
+    },
+    {
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "AsIs"
+      },
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      },
+      "tag": "block"
+    },
+    {
+      "tag": "fragment",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "AsIs",
+        "fragment": {
+          "packets": "1-1",
+          "length": "1",
+          "interval": "4",
+          "maxSplit": "300-400"
+        }
+      },
+      "streamSettings": {
+        "sockopt": {
+          "tcpKeepAliveIdle": 100,
+          "tcpMptcp": true,
+          "penetrate": true
+        }
+      }
+    }
+  ],
+  "policy": {
+    "levels": {
+      "8": {
+        "connIdle": 300,
+        "downlinkOnly": 1,
+        "handshake": 4,
+        "uplinkOnly": 1
+      }
+    }
+  },
+  "remarks": "Reality ()",
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "network": "tcp,udp",
+        "outboundTag": "proxy",
+        "type": "field"
+      }
+    ]
+  }
+}
