@@ -1,13 +1,9 @@
 {
   "dns": {
-    "queryStrategy": "UseIP",
+    "queryStrategy": "UseIPv4",
     "servers": [
-      {
-        "address": "1.1.1.2",
-        "skipFallback": false
-      }
-    ],
-    "tag": "dns_out"
+      "1.1.1.2"
+    ]
   },
   "inbounds": [
     {
@@ -62,7 +58,7 @@
         "security": "reality",
         "realitySettings": {
           "fingerprint": "chrome",
-          "publicKey": "20OHPn9gloIv8N_iP6-wtuf0u0rEZjP4tc5-4CpKCXY",
+          "password": "20OHPn9gloIv8N_iP6-wtuf0u0rEZjP4tc5-4CpKCXY",
           "serverName": "www.box.com",
           "shortId": "7a35a9b976a0e5ad",
           "show": false,
