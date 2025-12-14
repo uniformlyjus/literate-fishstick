@@ -1,0 +1,2680 @@
+[
+  {
+    "remarks": "Australia (🇦🇺)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "169a93a1-d01d-47f5-b3cd-a6176d610aa3",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "63c19674a518871b",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Austria (🇦🇹)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "d0b78cdf-8cda-4106-8935-dc80261c60c4",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "3504c86966142dca",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Bosnia & Herzegovina (🇧🇦)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "57dd7a29-6c3d-44d6-8088-c026ba45f06b",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "d5094d63cee67c31",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Cambodia (🇰🇭)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "410c211e-7ac1-4357-8039-e64e24fa8a71",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "d3e9ea8413029a25",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Croatia (🇭🇷)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "386d5ce5-4179-4cb8-98c6-35464c0f2a40",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "cabb07d1c73f47af",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Germany (🇩🇪)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "9ed98b7c-6d2b-4966-92cf-826b5039fa32",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "a32edf9b1ebb3bfe",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Georgia (🇬🇪)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "24cc4cbc-b36e-4a49-91ed-e10d0faa9c86",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "6aad8dbed4a5ac2a",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Hong Kong (🇭🇰)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "d9ed1f7d-c479-473f-8415-26517485cbdc",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "8ac867577a8c48f4",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "India (🇮🇳)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "924a7d02-5b14-4d27-8459-3fb305fc7393",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "eac677697368cbac",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Ireland (🇮🇪)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "7937fbc3-6949-4f5b-badc-02285a918d25",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "d0c23cc8184ddbfb",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Japan (🇯🇵)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "c6bfc598-a625-418f-ad22-c1e3e4a87dd1",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "ae261ec27ec40a8c",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Luxembourg (🇱🇺)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "30c043a2-384e-4fed-9c82-c3328bc43177",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "9f59449da75104f8",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Malta (🇲🇹)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "4fa154e9-a0c8-4971-a138-4c7ddd12c459",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "060a09eafc80318d",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Moldova (🇲🇩)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0c6207cf-e76c-4c5e-9fe5-0f652587102f",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "afe0bedae6d502ed",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Netherlands (🇳🇱)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "dd7f276e-47da-48f6-aa6e-d58f5ce33d4b",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "e7e53dc5ccebca30",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Peru (🇵🇪)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "98839fa4-386f-4bb9-8abe-fa5f531a65ac",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "6b3cb4f2a1139bd2",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Poland (🇵🇱)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "1f32385c-8d73-4ff3-aa68-79e8ea9c4c91",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "9e0b920c3583513a",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Portugal (🇵🇹)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "e57edcba-509d-4335-bfa1-d65a17bdab2b",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "acfb71787dabfcb0",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Russia (🇷🇺)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "c4d925d1-5407-4813-8152-79102a6aae6f",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "d855134dba258636",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Serbia (🇷🇸)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "5ef2664f-cae9-4948-803b-2fe471029461",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "59630909b7c3ed97",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Spain (🇪🇸)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "e9ae15ce-db04-4edf-b857-99d8143dfc66",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "f94ba7a574a5a30c",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "UK (🏴󠁧󠁢󠁥󠁮󠁧󠁿)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "f68666f4-e16c-4bd4-90b1-ddc4722bbbe5",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "f05b07916d6819bc",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "USA (🇺🇸)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "d8ce8cd1-b485-4d8a-bd65-143eae8e7381",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "7a8f2de2328a1ba1",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Ukraine (🇺🇦)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "f719337d-a761-455e-a566-4d58a07e1f12",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "423b4fe2d9ec1e27",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "United Arab Emirates (🇦🇪)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "227d1c00-f1d6-4843-b5e9-6c05b66b4f74",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "2501624ed566b03e",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  {
+    "remarks": "Finland (🇫🇮)",
+    "log": {
+      "loglevel": "warning"
+    },
+    "dns": {
+      "servers": [
+        {
+          "address": "https://dns.quad9.net/dns-query",
+          "detour": "direct"
+        },
+        {
+          "address": "https://dns.adguard.com/dns-query",
+          "detour": "direct"
+        },
+        "localhost"
+      ],
+      "queryStrategy": "UseIPv4v6"
+    },
+    "inbounds": [
+      {
+        "port": 10809,
+        "protocol": "http",
+        "settings": {},
+        "tag": "http"
+      },
+      {
+        "port": 10808,
+        "protocol": "socks",
+        "settings": {
+          "udp": true
+        },
+        "tag": "socks"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "46.224.108.231",
+              "port": 443,
+              "users": [
+                {
+                  "id": "eeb724eb-7426-466d-956a-0236b0ed2a6b",
+                  "flow": "",
+                  "encryption": "mlkem768x25519plus.native.0rtt.MCwfK_pjZlwbCDCUNXDBnxCteMy3nVUmkOYBnkOyRHxvqHyDbVKAQvY8agoZppcHE4ZLJfgxqPJG1TpBNlgL6hQj_GS_8-UWQ8x-qlWpakYDvuxYRtF68gozQIYjKUW-kgoyXXhmtMCq4UKhDMh-PuMib5hevbTN0TEUJxU3iPayrnACChq51uUVUxuSp9uabgljDAoJhEVc62ae9_scP2K34XpNzNNpNnBoQlBs0Wl8yKOAINq1kbBiNNeVIGOYWuMqvLyXpZJmzdmTTkjBRWm7hXgOXyTJGViN20rI90ipL_KDpQBKjBAhkPed2FC9u8WUeqZD9pxGCHA5h9ixzXh1GyR2LMUD3AfMWdxfi-g9qRwBA3wpB3uONhCEClIE3LismXi1xgpeeKCq1jHHjthqcsSlxZRgRcg8YhRZJvkilVa-2pQ9p2GRLhyUYUlYgmRFiHeD55RC4HFKKaxt3ANQj5UVmLJHiNGexrGtWXwpWdI05LvPIAs5OmpDygq3ISB-kQs0EAbIeUdZCSE0WLAwFua0wnUJykp-xaVRrvQccBwiadlsJ_SBV7cYs1JCgSeLAAVHpRM-dJxaPrwkIIt_PaQMrwfBpeW3ZNq1rpyu9JYy2holI3xCwRiBPiQikfZErdhoQeiqIYyJuqGs-Rh4bRdEHzWueWqe5WsaCTC9QrtCz3aBJNib-vhRqUCIoXU5V6VQ2-OtL8C0SatN4tpyftQ_nUUUshUMxZCXcDmTTPROp9lMK1VgFTCQv4UmUcylzear85u25JQZ00SsA3KAILUV5lQNqUkULuBNv0UxuAihmtMzc8pWmUCS_FsLG2cfzPpkfjyimuOGSDilg0hyKekVhEOXRRueuveFrTB9f1DJBSfCNOMsirUWx9dGCbXHjWgBwYYHK7KECfVlyFyRdmYclrx7SXlwqla4RRII28hvCUJoD1Oo3pUNEuqqQ5xN-EAGESuK_IOLmDq_8AWSY9QucMyhPdevR6dchTR8P_V-lVK7XLAdh-F-NRE09WkQl5xNWIqBSeRYf3SvpsCjaIFaclCdqohMEeY6MePNL0UwyuVuGiB6tEVPjuZGGEKOhgSX9-bMD5WkFvKglmh79WQDPLBPq5Bj4uujuNUZoCE3tbhF-NqZeQltTRs8N1FblXVK72xPsYu7oAS8s8XKS8sn8SWLaCtQvxI-dJULfjJjD1IdbaZ8umU7ACWLLPBF86o2cQY6UBFO-Byz49sC0yTCimCvy9xNdbdJ8TcVLLYYhWbLpIBIS5Jou0iAhcAgnvBGp-ejkHWLGqxTN3IeF1x_XnzPn1ClpyGrAWsTnvuq1cVz2dVKIhcLMoW1aEJIj3Wu2hp9e9tMyaGVAhcNL5atvfWF4HEZZ7U_yVkspFAW7OJPZpUrRSgwQvW-wGW41jNedQOvIVV4CMmmA-SFzqUocNEsKkrIlCsluRCIDYNlQwXG9VGdn6t6d4cAMnsnA4VwyTKPsoJQtreSDACUDbqr4BUx2UVgw0NT1HJXC6x0thQCAIkpyHAAAGgUWZSqDKUevfuw4klmLbH7mtDMosNotWqrIEE-JXGc6Nw"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "Proxy",
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
+            "fingerprint": "chrome",
+            "serverName": "www.a.ki",
+            "shortId": "9027d0d3ef4e7d54",
+            "spiderX": "/",
+            "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
+          },
+          "xhttpSettings": {
+            "path": "/login.html",
+            "host": "",
+            "mode": "auto",
+            "noGRPCHeader": false,
+            "scMinPostsIntervalMs": "30",
+            "xmux": {
+              "maxConcurrency": "16-32",
+              "maxConnections": 0,
+              "cMaxReuseTimes": 0,
+              "hMaxRequestTimes": "600-900",
+              "hMaxReusableSecs": "1800-3000",
+              "hKeepAlivePeriod": 0
+            }
+          },
+          "sockopt": {
+            "fragment": {
+              "packets": "1-1",
+              "length": "1",
+              "interval": "4"
+            }
+          }
+        }
+      },
+      {
+        "protocol": "freedom",
+        "tag": "Direct"
+      },
+      {
+        "protocol": "blackhole",
+        "tag": "Reject"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  }
+]
