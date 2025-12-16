@@ -2,7 +2,7 @@
   {
     "remarks": "Australia (🇦🇺)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -115,7 +115,7 @@
   {
     "remarks": "Austria (🇦🇹)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -228,7 +228,7 @@
   {
     "remarks": "Belgium (🇧🇪)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -341,7 +341,7 @@
   {
     "remarks": "Bosnia & Herzegovina (🇧🇦)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -454,7 +454,7 @@
   {
     "remarks": "Cambodia (🇰🇭)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -567,7 +567,7 @@
   {
     "remarks": "Croatia (🇭🇷)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -680,7 +680,7 @@
   {
     "remarks": "Finland (🇫🇮)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -793,7 +793,7 @@
   {
     "remarks": "Georgia (🇬🇪)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -906,7 +906,7 @@
   {
     "remarks": "Germany (🇩🇪)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1019,7 +1019,7 @@
   {
     "remarks": "Hungary (🇭🇺)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1132,7 +1132,7 @@
   {
     "remarks": "India (🇮🇳)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1245,7 +1245,7 @@
   {
     "remarks": "Ireland (🇮🇪)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1358,7 +1358,7 @@
   {
     "remarks": "Japan (🇯🇵)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1471,7 +1471,7 @@
   {
     "remarks": "Luxembourg (🇱🇺)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1584,7 +1584,7 @@
   {
     "remarks": "Malta (🇲🇹)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1697,7 +1697,7 @@
   {
     "remarks": "Moldova (🇲🇩)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1810,7 +1810,7 @@
   {
     "remarks": "Netherlands (🇳🇱)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -1923,7 +1923,7 @@
   {
     "remarks": "Peru (🇵🇪)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2036,7 +2036,7 @@
   {
     "remarks": "Poland (🇵🇱)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2149,7 +2149,7 @@
   {
     "remarks": "Portugal (🇵🇹)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2262,7 +2262,7 @@
   {
     "remarks": "Serbia (🇷🇸)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2375,7 +2375,7 @@
   {
     "remarks": "Spain (🇪🇸)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2488,7 +2488,7 @@
   {
     "remarks": "UK (🏴󠁧󠁢󠁥󠁮󠁧󠁿)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2601,7 +2601,7 @@
   {
     "remarks": "Ukraine (🇺🇦)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2714,7 +2714,7 @@
   {
     "remarks": "United Arab Emirates (🇦🇪)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
@@ -2827,7 +2827,7 @@
   {
     "remarks": "USA (🇺🇸)",
     "log": {
-      "loglevel": "warning"
+      "loglevel": "none"
     },
     "dns": {
       "servers": [
