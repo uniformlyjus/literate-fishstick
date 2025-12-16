@@ -5,47 +5,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -61,10 +52,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -72,46 +66,47 @@
             "shortId": "63c19674a518871b",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -120,47 +115,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -176,10 +162,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -187,46 +176,47 @@
             "shortId": "3504c86966142dca",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -235,47 +225,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -291,10 +272,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -302,46 +286,47 @@
             "shortId": "8ac867577a8c48f4",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -350,47 +335,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -406,10 +382,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -417,46 +396,47 @@
             "shortId": "d5094d63cee67c31",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -465,47 +445,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -521,10 +492,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -532,46 +506,47 @@
             "shortId": "d3e9ea8413029a25",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -580,47 +555,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -636,10 +602,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -647,46 +616,47 @@
             "shortId": "cabb07d1c73f47af",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -695,47 +665,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -751,10 +712,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -762,46 +726,47 @@
             "shortId": "9027d0d3ef4e7d54",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -810,47 +775,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -866,10 +822,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -877,46 +836,47 @@
             "shortId": "6aad8dbed4a5ac2a",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -925,47 +885,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -981,10 +932,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -992,46 +946,47 @@
             "shortId": "a32edf9b1ebb3bfe",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1040,47 +995,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1096,10 +1042,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1107,46 +1056,47 @@
             "shortId": "d855134dba258636",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1155,47 +1105,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1211,10 +1152,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1222,46 +1166,47 @@
             "shortId": "eac677697368cbac",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1270,47 +1215,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1326,10 +1262,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1337,46 +1276,47 @@
             "shortId": "d0c23cc8184ddbfb",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1385,47 +1325,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1441,10 +1372,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1452,46 +1386,47 @@
             "shortId": "ae261ec27ec40a8c",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1500,47 +1435,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1556,10 +1482,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1567,46 +1496,47 @@
             "shortId": "9f59449da75104f8",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1615,47 +1545,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1671,10 +1592,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1682,46 +1606,47 @@
             "shortId": "060a09eafc80318d",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1730,47 +1655,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1786,10 +1702,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1797,46 +1716,47 @@
             "shortId": "afe0bedae6d502ed",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1845,47 +1765,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -1901,10 +1812,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -1912,46 +1826,47 @@
             "shortId": "e7e53dc5ccebca30",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -1960,47 +1875,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2016,10 +1922,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2027,46 +1936,47 @@
             "shortId": "6b3cb4f2a1139bd2",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2075,47 +1985,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2131,10 +2032,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2142,46 +2046,47 @@
             "shortId": "9e0b920c3583513a",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2190,47 +2095,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2246,10 +2142,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2257,46 +2156,47 @@
             "shortId": "acfb71787dabfcb0",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2305,47 +2205,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2361,10 +2252,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2372,46 +2266,47 @@
             "shortId": "59630909b7c3ed97",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2420,47 +2315,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2476,10 +2362,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2487,46 +2376,47 @@
             "shortId": "f94ba7a574a5a30c",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2535,47 +2425,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2591,10 +2472,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2602,46 +2486,47 @@
             "shortId": "f05b07916d6819bc",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2650,47 +2535,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2706,10 +2582,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2717,46 +2596,47 @@
             "shortId": "423b4fe2d9ec1e27",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2765,47 +2645,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2821,10 +2692,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2832,46 +2706,47 @@
             "shortId": "2501624ed566b03e",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   },
   {
@@ -2880,47 +2755,38 @@
       "loglevel": "info"
     },
     "dns": {
+      "hosts": {
+        "dns.quad9.net": ["9.9.9.9", "149.112.112.112"],
+        "dns.adguard.com": ["94.140.14.14", "94.140.15.15"]
+      },
       "servers": [
-        {
-          "address": "https://dns.quad9.net/dns-query",
-          "detour": "Proxy"
-        },
-        {
-          "address": "https://dns.adguard.com/dns-query",
-          "detour": "Proxy"
-        },
+        "https://dns.quad9.net/dns-query",
+        "https://dns.adguard.com/dns-query",
         "localhost"
       ],
-      "queryStrategy": "UseIPv4v6"
+      "queryStrategy": "UseIPv4"
     },
     "inbounds": [
       {
-        "port": 10809,
-        "protocol": "http",
-        "settings": {},
-        "tag": "http",
-        "sniffing": {
-          "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
-          "routeOnly": false
-        }
-      },
-      {
-        "port": 10808,
-        "protocol": "socks",
-        "settings": {
-          "udp": true
-        },
         "tag": "socks",
+        "port": 10808,
+        "listen": "127.0.0.1",
+        "protocol": "mixed",
         "sniffing": {
           "enabled": true,
-          "destOverride": ["http", "tls", "quic", "fakedns"],
+          "destOverride": ["http", "tls"],
           "routeOnly": false
+        },
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "allowTransparent": false
         }
       }
     ],
     "outbounds": [
       {
+        "tag": "proxy",
         "protocol": "vless",
         "settings": {
           "vnext": [
@@ -2936,10 +2802,13 @@
             }
           ]
         },
-        "tag": "Proxy",
         "streamSettings": {
           "network": "xhttp",
           "security": "reality",
+          "xhttpSettings": {
+            "path": "/",
+            "mode": "auto"
+          },
           "realitySettings": {
             "publicKey": "uqCvlQkudxJ5oFRtAIs1XEo6Qg2SqifoVgRJVp2lQgU",
             "fingerprint": "chrome",
@@ -2947,46 +2816,47 @@
             "shortId": "7a8f2de2328a1ba1",
             "spiderX": "/",
             "mldsa65Verify": "d5hvaBGee2v8-48mRtUw6sHj3msOZAXYcrvcz5p5krvEshDyv-sR3e982HEOOc4ryjv6xZLCjWfdyJc79HQkMtHVp-BbnYmKNQllLH06Y2YlyHCxCzedwxTiX9G4x0cOn2klEeM20rtYl6p1MMvAVyblJvc2Kpj8lrrBkhxJ73qpKlB4KlfqwOdXSQc_P70PTXN9TXQvL9_pYkBt9A5AU6KsfkVy5LMyilgaCPlymX7sGcVmxUGdez5pgKKxkaW2WKjyUkNdbVu1PL1X8F6vOx_ut8NQU1-rh76zajgNrtuNgAw70XV92eCm17CKxwTAMmmY0fnZHTJDHUnSeaURBHkgl88zUql8XHOba8ipaKs2xCQvdlUfsb3Yc0VzeCS4djrf5g_HXuHOiUZ7qabbLU3zxZ0SGaSyuy7ZafhvI5vjLpkPi0e5Bf-SBiAF-ybzx_hUgxeZu0Enpe6fAyJMuv-T2z_7ii2pEllfUzFDG6pZUxECFAQWYHEGCYpA_SrKdXzstIqVtssaK67KeXf1BggARniPN7w_qoBlaLTfecDKdvJ21F4NQnPjKtifkNsdWKgnVmHBj88K_-ARom0g0jqxVNXDoAuOWaNUf_RjSB5y58ZIOexx7I4GMA5YwJB7hlygSG8cuEaYQNEgdoRK-9eiK879XD11QXtvX5fSseof-i-nUQgmzxsZyq8ATj26xvYogiuf5HNYspOZzaMxHKpBh54rJksi7ZNUJMp0kd_kz3ncAJZGGs5j8knk7mVPOL5mbXwD59AXB0GZMnLCFP8EO_-mslA8NyjCsgqu6oQNGW8-x8Ezhb3Kx88EcHz7j5wjGXXZrT0uzFZlWFpjZwYMRFMh-x3OtsuMNEO2yHSSxEYf_qRt0e_rGwQFBO4XwqNzrOCzPqXwXdXz8PpxacO_cK8J9tVLLBVF6sb9kzTRNuH0qfNd95xVyARAdw4nz52xOMAOYghNQwHfSWjHnT8qb3zfKzGXYIT_14H4RYByIpPzN9GR96NwwpFvR8eqpfYxHQp86iNK8QI_BKostSmPdOzdbcIInCHd9u0IdSEiknbYyUf25TvarNTacIT5DlZhCrSoOCoR3ijd7iq0GzWT6W5bs_SXy2xqgSMy-30rHZ_qW6nYt9XmbDmxaiPFkqXqZI_iJmkVtNom6IWnTM2EErnnrAMrdHrKhyfxIb9kDar-ba21TVbp-w37SWJk5GrNFavLPAz4xu3u4MD5ubki2yTmmNxOLB-ciVL_e9XHKyENLsr_u53m3d68FYUQxd3Ez-volpTK4Fk0oIXJ_BOKQght0NW9IVkDiIOETP06WH6RQSZ9NgtIrR8U3VDy9Kb3zd6oiTr5uvMpV5HxkbBu91lqk7f2gRWCxYqPjXvuvaDmyssA-eKQnKRlwQRc4mDzW9cUI0wF4z585zppaeIiizZXNKaxtMkFSEAuRZnw-xoeESvGtUHmQoObkptk1KLjWTCopYFUGV4ea2S84xuz_kWXHSyFK9PoZFaXudYNfVeuNPIQvraUPc23cXRV55TaZwSZPtZ9Au1kFekm02DCR6nh5UiWyVd4RpScvohoYPJaZqoJisMI3RVe9-_7DPcF-HMDMsVsaVCW7rdeqrV_BctxO8GZbly48adhiYK5kt_v0S-_8UGDonl1GlOwUNBN-54bsvxHq9_7hNGdCFRD51uU3CiALXsUiTeuzvnQjikR_clyUTHAIHeaG0yMSkKUq8AprycgMfAv0GJCq9jFKwBFoHrLdMv4w371BulsyS_k8URFa2A4zguHRLsGhhW73PYlwp3iF_PetYP1h_RX5ItAOm-UnYap-H7MAow3o-iErtQVOyGtolzbYIMjPx10dPEYub6ODT2-zykrHu75vTwt62-qzHz28dVDmGNiWHOX1ViqXNLMwnvSeZKvHl5w3iRL2g-C7JAIzXwtneVEVLyUoBdKSF0Bmqfx4M8XTbzn1CVZVIyLNsiZWGsSCKAPpcHNFL99jPmhmkkbdVhgNzX08k78zXEgrUWGvrVqVpkZItL29JJzERqL9EBhQrwBWhu8Ia8FZBqrlKCzjBSnqEKLkrKjE71Xx0aNFKyXZ0mx1SmmyVMo4R9KZzkZXuTLJZMQvfP09xEbhYjStBLP8QVbxt_zFXI50hVe2rZmZyUlEqGASFDqLH800Aq85U9A56Vf-heLIl7-QRP4_InX9l-KTnquROtzi5ae4qrOrOk4aMrtZXfxYfn7PyquyNWdm4V-eXop4ymhQanl9TJqUQyly4faF8Ga8YzJK_6jLgNFg9b4XX27Qu-s2FKy-8mzi0cWwQ1uPD7D4AUoz9FfV5ptWDD6FaSJS_fpNp6iu3HbZunw9zKH171NQ7B-5Mx7hqpqJuJ_L42pxWYheNp3Zfpn4D__grA9L4f7iJNLDCYcpKr8zy7THeSy8VNPuVrjCz8fUW2oqd9B3wad-UGHA3pai-i8wGc5mZ2U-J8KQDTl40E8INdFonTkEVnpHnVg-f22ptR-1b6YhZPGD4MR50-jZHHYDi641JLDyzkOqP93xCn3F0mTtTyu6rV2m0s0CijmHCGlcTIbT7j8tLofLJsl-HWrQd8yWmU1ei8"
-          },
-          "xhttpSettings": {
-            "path": "/",
-            "host": "",
-            "mode": "auto",
-            "noGRPCHeader": false,
-            "scMinPostsIntervalMs": "10-50"
-          },
-          "sockopt": {
-            "tcpFastOpen": true
           }
+        },
+        "mux": {
+          "enabled": false,
+          "concurrency": -1
         }
       },
       {
-        "protocol": "freedom",
-        "tag": "Direct"
+        "tag": "direct",
+        "protocol": "freedom"
       },
       {
-        "protocol": "blackhole",
-        "tag": "Reject"
+        "tag": "block",
+        "protocol": "blackhole"
       }
     ],
     "routing": {
-      "domainStrategy": "IPIfNonMatch",
+      "domainStrategy": "AsIs",
       "rules": [
         {
           "type": "field",
+          "port": "443",
+          "network": "udp",
+          "outboundTag": "block"
+        },
+        {
+          "type": "field",
           "ip": ["geoip:private"],
-          "outboundTag": "Direct"
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": ["geosite:private"],
+          "outboundTag": "direct"
         },
         {
           "type": "field",
           "port": "0-65535",
-          "outboundTag": "Proxy"
+          "outboundTag": "proxy"
         }
       ]
-    },
-    "fakedns": {
-      "ipPool": "198.18.0.0/16",
-      "poolSize": 65535
     }
   }
 ]
