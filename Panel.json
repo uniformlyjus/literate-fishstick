@@ -2,7 +2,7 @@
   {
     "remarks": "Australia (🇦🇺)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -117,7 +117,7 @@
   {
     "remarks": "Austria (🇦🇹)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -232,7 +232,7 @@
   {
     "remarks": "Belgium (🇧🇪)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -347,7 +347,7 @@
   {
     "remarks": "Bosnia & Herzegovina (🇧🇦)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -462,7 +462,7 @@
   {
     "remarks": "Cambodia (🇰🇭)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -577,7 +577,7 @@
   {
     "remarks": "Croatia (🇭🇷)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -692,7 +692,7 @@
   {
     "remarks": "Finland (🇫🇮)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -807,7 +807,7 @@
   {
     "remarks": "Georgia (🇬🇪)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -922,7 +922,7 @@
   {
     "remarks": "Germany (🇩🇪)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1037,7 +1037,7 @@
   {
     "remarks": "Hungary (🇭🇺)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1152,7 +1152,7 @@
   {
     "remarks": "India (🇮🇳)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1267,7 +1267,7 @@
   {
     "remarks": "Ireland (🇮🇪)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1382,7 +1382,7 @@
   {
     "remarks": "Japan (🇯🇵)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1497,7 +1497,7 @@
   {
     "remarks": "Luxembourg (🇱🇺)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1612,7 +1612,7 @@
   {
     "remarks": "Malta (🇲🇹)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1842,7 +1842,7 @@
   {
     "remarks": "Netherlands (🇳🇱)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -1957,7 +1957,7 @@
   {
     "remarks": "Peru (🇵🇪)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2072,7 +2072,7 @@
   {
     "remarks": "Poland (🇵🇱)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2187,7 +2187,7 @@
   {
     "remarks": "Portugal (🇵🇹)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2302,7 +2302,7 @@
   {
     "remarks": "Serbia (🇷🇸)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2417,7 +2417,7 @@
   {
     "remarks": "Spain (🇪🇸)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2532,7 +2532,7 @@
   {
     "remarks": "UK (🏴󠁧󠁢󠁥󠁮󠁧󠁿)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2647,7 +2647,7 @@
   {
     "remarks": "Ukraine (🇺🇦)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2762,7 +2762,7 @@
   {
     "remarks": "United Arab Emirates (🇦🇪)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
@@ -2877,7 +2877,7 @@
   {
     "remarks": "USA (🇺🇸)",
     "log": {
-      "loglevel": "none"
+      "loglevel": "info"
     },
     "dns": {
       "servers": [
